@@ -1,3 +1,13 @@
 {
-    "python.pythonPath": "/Users/avr/Documents/github_others/fakefiles/env/bin/python3"
+    "python.pythonPath": "env/bin/python",
+    "python.formatting.provider": "black",
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}/src"
+    },
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
 }

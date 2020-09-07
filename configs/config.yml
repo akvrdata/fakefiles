@@ -1,15 +1,22 @@
 tables:
   table1:
-    rows_to_generate : 50
-    first_name : fake.person.first_name()
-    last_name : fake.person.last_name()
-    status : fake.numbers.integer_number(1,15)
-    id : fake.numbers.integer_number(1,10000)
-    vendorid : fake.numbers.integer_number(1,100)
-    userdate : fake.datetime.date(start=2019, end=2020)   
-    creationjobid : fake.numbers.integer_number(1,10000) 
-    modifiedjobid : fake.numbers.integer_number(1,1000) 
-    version : fake.numbers.integer_number(1,4000)
-    encodedtags : fake.numbers.integer_number(1,500000)
-    userid : fake.numbers.integer_number(1,200)
-    description : fake.text.word()
+    rows_to_generate: 5
+    first_name: fake.person.first_name()
+    last_name: fake.person.last_name()
+    status: fake.numbers.integer_number(1,15)
+    id: fake.numbers.integer_number(1,10000)
+    vendorid: fake.numbers.integer_number(1,100)
+    userdate: fake.datetime.date(start=2019, end=2020)
+    creationjobid: fake.numbers.integer_number(1,10000)
+    modifiedjobid: fake.numbers.integer_number(1,1000)
+    version: fake.numbers.integer_number(1,4000)
+    encodedtags: fake.numbers.integer_number(1,500000)
+    userid: fake.numbers.integer_number(1,200)
+    description: fake.text.word()
+
+  table3:
+    rows_to_generate: 5
+    first_name: fake.person.first_name()
+    last_name: fake.person.last_name()
+    status: fake.numbers.integer_number(1,15)
+    id: fake.numbers.integer_number(1,10000)
