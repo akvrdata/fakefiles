@@ -1,6 +1,6 @@
 tables:
   table1:
-    rows_to_generate: 5
+    rows_to_generate: 1
     first_name: fake.person.first_name()
     last_name: fake.person.last_name()
     status: fake.numbers.integer_number(1,15)

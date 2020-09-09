@@ -7,7 +7,6 @@ import sys
 import click
 import src.awsmods
 
-# import awsmods
 
 fake = Generic("en")  # main object to be used in the yaml configs
 """Generate CSV files with dummy data based on mimesis configs"""
@@ -60,18 +59,44 @@ class createFakeFiles:
         pass
 
 
-def exec():
+@click.group()
+def cli():
+    """
+    CLI generates CSV based on the Configuration in /output/config.yml.
+    Facility for upload too exists but works only on an EC2.
+    """
+    pass
+
+
+@cli.command()
+def generate():
+    """
+    \b
+    Creates the file as per the configuration.
+    \b Sample config :
+    \b
+    table1:
+        rows_to_generate: 1
+        first_name: fake.person.first_name()
+        last_name: fake.person.last_name()
+        status: fake.numbers.integer_number(1,15)
+        id: fake.numbers.integer_number(1,10000)
+        vendorid: fake.numbers.integer_number(1,100)
+        userdate: fake.datetime.date(start=2019, end=2020)
+        description: fake.text.word()
+    """
     obj = createFakeFiles()
     lis = obj.extractor()
-    src.awsmods.s3_upload()
+    # print("created")
 
 
-@click.command()
-def cli():
-    exec()
+@cli.command()
+@click.option("--bucket_name", default="mint-scripts-test")
+def upload(bucket_name):
+    """Uploads the generated file to S3 Bucket.
+    Works only when on an EC2"""
+    src.awsmods.s3_upload(bucket_name)
+    # print("uploaded")
 
 
-# out_pth = os.getcwd() + "/" + "output"
-# mock_bucket_name = "mint-test-scripts"
-# storage_pth = "fakefiles_outputs"
 cli()

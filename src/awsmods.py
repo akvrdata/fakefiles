@@ -7,8 +7,8 @@ import click
 file_pth = os.path.join(os.getcwd(), "output")
 
 
-@click.command()
-@click.option("--bucket_name", default="mint-scripts-test")
+# @cli.command()
+# @click.option("--bucket_name", default="mint-scripts-test")
 def s3_upload(bucket_name):
     """Loads all the files in output directory to a specified bucket.Bucket name needs to be passed in"""
     try:
